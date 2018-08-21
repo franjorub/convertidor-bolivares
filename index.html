@@ -61,13 +61,14 @@
             let bs = document.querySelector('#bs').value
             let option = document.querySelector('#options').value
             let result = document.querySelector('#result')
+            let format = + (option == 1) ? 'bsF.' : 'bsS.' + ' '
             if (option == 0) {
                 result.innerHTML = 'Escoja una opción'
                 return
             }
             if (option == 1) bs = bs * 100000
             if (option == 2) bs = bs / 100000
-            result.innerHTML = bs.toLocaleString('de-DE')
+            result.innerHTML = bs.toLocaleString('de-DE') + format
         })
     </script>
 
