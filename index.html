@@ -23,29 +23,39 @@
     </header>
     <hr>
     <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
 
-        <form class="border border-dark p-4 mb-2">
-            <div class="form-group">
-                <label for="bs">Ingrese cantidad <span class="text-muted">utiliza . si deseas incluir decimales</span></label>
-                <input type="number" step="0.01" class="form-control" id="bs">
+                <form class="border border-dark p-4 mb-2">
+                    <div class="form-group">
+                        <label for="bs">Ingrese cantidad <span class="text-muted">utiliza . si deseas incluir decimales</span></label>
+                        <input type="number" step="0.01" class="form-control" id="bs">
+                    </div>
+
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <button id="convertir" class="btn btn-outline-primary" type="button">Convertir</button>
+                        </div>
+                        <select class="custom-select" id="options">
+                            <option selected value="0">Seleccione</option>
+                            <option value="1">BsS / BsF</option>
+                            <option value="2">BsF / BsS</option>
+                        </select>
+                    </div>
+                </form>
             </div>
+        </div>
 
-
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <button id="convertir" class="btn btn-outline-primary" type="button">Convertir</button>
-                </div>
-                <select class="custom-select" id="options">
-                    <option selected value="0">Seleccione</option>
-                    <option value="1">BsS / BsF</option>
-                    <option value="2">BsF / BsS</option>
-                </select>
-            </div>
-        </form>
     </div>
 
     <div class="container">
-        <div class="alert alert-primary" id="result" role="alert">
+        <div class="row">
+            <div class="col-lg-4">
+
+                <div class="alert alert-primary" id="result" role="alert">
+                </div>
+            </div>
         </div>
     </div>
 
@@ -61,7 +71,7 @@
             let bs = document.querySelector('#bs').value
             let option = document.querySelector('#options').value
             let result = document.querySelector('#result')
-            let format = + (option == 1) ? 'bsF.' : 'bsS.' + ' '
+            let format = + (option == 1) ? 'bsF' : 'bsS'
             if (option == 0) {
                 result.innerHTML = 'Escoja una opción'
                 return
