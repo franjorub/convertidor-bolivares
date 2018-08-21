@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Convertidor Bolivares Soberanos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col col-sm-12">
+                    <h1 class="display-4" style="text-align: center">Convertidor BsS - BsF</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <hr>
+    <div class="container">
+
+        <form class="border border-dark p-4 mb-2">
+            <div class="form-group">
+                <label for="bs">Ingrese cantidad <span class="text-muted">utiliza . si deseas incluir decimales</span></label>
+                <input type="number" step="0.01" class="form-control" id="bs">
+            </div>
+
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <button id="convertir" class="btn btn-outline-primary" type="button">Convertir</button>
+                </div>
+                <select class="custom-select" id="options">
+                    <option selected value="0">Seleccione</option>
+                    <option value="1">BsS / BsF</option>
+                    <option value="2">BsF / BsS</option>
+                </select>
+            </div>
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="alert alert-primary" id="result" role="alert">
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <script>
+        document.querySelector('#convertir').addEventListener('click', event => {
+            let bs = document.querySelector('#bs').value
+            let option = document.querySelector('#options').value
+            let result = document.querySelector('#result')
+            if (option == 0) {
+                result.innerHTML = 'Escoja una opción'
+                return
+            }
+            if (option == 1) bs = bs * 100000
+            if (option == 2) bs = bs / 100000
+            result.innerHTML = bs.toLocaleString('de-DE')
+        })
+    </script>
+
+</body>
+
+</html>
